@@ -19,6 +19,7 @@ failed_attempts = defaultdict(int)
 
 # Regular expression pattern to extract IPs
 pattern = r"Failed password for .* from ((?:\d{1,3}\.){3}\d{1,3}|[0-9a-fA-F:]+)"
+
 # Process journalctl logs
 for line in output.split("\n"):
     print("Checking log line:", line)  # Debugging each line
@@ -26,18 +27,14 @@ for line in output.split("\n"):
     if match:
         ip_address = match.group(1)
         failed_attempts[ip_address] += 1
-        
-   
+          
 # Print detected brute force attacks
 THRESHOLD = 5
-print("\n🔍 Potential Brute Force Attacks Detected:\n")
+print("\n Potential Brute Force Attacks Detected:\n")
 for ip, count in failed_attempts.items():
     if count > THRESHOLD:
-        print(f"⚠️ {ip} has {count} failed login attempts!\n")
+        print(f"* {ip} has {count} failed login attempts!\n")
 
 print("\n Log Analysis Complete.")
 
-with open("brute_force_alerts.txt", "w") as f:
-    for ip, count in failed_attempts.items():
-        if count > THRESHOLD:
-            f.write(f"⚠️ {ip} has {count} failed login attempts!\n")
+
