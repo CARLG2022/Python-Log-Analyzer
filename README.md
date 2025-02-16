@@ -14,15 +14,21 @@ Python 3.x
 sudo privileges (required for accessing system logs via `journalctl`) 
 
 ## Installation & Usage
-Clone the repository  
+Clone the repository:
+```
 git clone https://github.com/CARLG2022/Python-Log-Analyzer.git
 - cd log-analysis
+```
 ## Run the code
-python3 ssh_log_analyzer.py 
+```
+python3 ssh_log_analyzer.py
+```
 ## Example Output
+```
 Potential Brute Force Attacks Detected:
 
 * ::1 has 29 failed login attempts!
+```
 ## License 
 This project is licensed under the MIT License.
   
